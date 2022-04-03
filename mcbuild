@@ -1,0 +1,10 @@
+#!/bin/bash
+module switch PrgEnv-intel PrgEnv-cray
+module load cray-hdf5-parallel cray-netcdf-hdf5parallel cray-trilinos
+
+cmake \
+-D CMAKE_INSTALL_PREFIX:PATH="/global/homes/p/pjmcd/perinstall" \
+-D CMAKE_CXX_FLAGS:STRING="-O2 -Wall -std=c++11 -pedantic -Wno-long-long -ftrapv -Wno-deprecated -fopenmp" \
+/global/homes/p/pjmcd/peridigm
+
+make -j install
